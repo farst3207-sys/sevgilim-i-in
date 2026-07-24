@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,15 +21,10 @@ font-family:'Poppins',sans-serif;
 body{
 
 height:100vh;
-
 overflow:hidden;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 background:linear-gradient(135deg,#ff5e9c,#ff8eb7,#ffd3df);
 
 }
@@ -36,17 +32,11 @@ background:linear-gradient(135deg,#ff5e9c,#ff8eb7,#ffd3df);
 #bg{
 
 position:fixed;
-
 width:100%;
-
 height:100%;
-
 left:0;
-
 top:0;
-
 overflow:hidden;
-
 pointer-events:none;
 
 }
@@ -54,13 +44,9 @@ pointer-events:none;
 .heart{
 
 position:absolute;
-
 bottom:-60px;
-
 color:white;
-
 opacity:.8;
-
 animation:heart linear infinite;
 
 }
@@ -68,25 +54,17 @@ animation:heart linear infinite;
 @keyframes heart{
 
 0%{
-
 transform:translateY(0) scale(.5);
-
 opacity:0;
-
 }
 
 20%{
-
 opacity:1;
-
 }
 
 100%{
-
 transform:translateY(-120vh) scale(1.5);
-
 opacity:0;
-
 }
 
 }
@@ -94,27 +72,16 @@ opacity:0;
 .card{
 
 width:90%;
-
 max-width:560px;
-
 padding:40px;
-
 border-radius:30px;
-
 background:rgba(255,255,255,.20);
-
 backdrop-filter:blur(20px);
-
 box-shadow:0 15px 40px rgba(0,0,0,.25);
-
 text-align:center;
-
 color:white;
-
 animation:show .7s;
-
 position:relative;
-
 z-index:10;
 
 }
@@ -122,19 +89,13 @@ z-index:10;
 @keyframes show{
 
 from{
-
 opacity:0;
-
 transform:translateY(40px);
-
 }
 
 to{
-
 opacity:1;
-
 transform:translateY(0);
-
 }
 
 }
@@ -142,7 +103,6 @@ transform:translateY(0);
 h1{
 
 font-size:42px;
-
 margin-bottom:20px;
 
 }
@@ -150,9 +110,7 @@ margin-bottom:20px;
 p{
 
 font-size:21px;
-
 line-height:35px;
-
 margin-bottom:30px;
 
 }
@@ -160,21 +118,13 @@ margin-bottom:30px;
 button{
 
 padding:16px 34px;
-
 font-size:20px;
-
 border:none;
-
 border-radius:15px;
-
 cursor:pointer;
-
 background:white;
-
 color:#ff3d82;
-
 font-weight:bold;
-
 transition:.3s;
 
 }
@@ -182,26 +132,6 @@ transition:.3s;
 button:hover{
 
 transform:scale(1.08);
-
-}
-
-input{
-
-width:90%;
-
-padding:15px;
-
-font-size:20px;
-
-border:none;
-
-border-radius:15px;
-
-text-align:center;
-
-outline:none;
-
-margin-bottom:25px;
 
 }
 
@@ -242,8 +172,6 @@ Başla 💖
 
 <script>
 
-let isim="Yavrum";
-
 let evetBoyut=1;
 
 const bg=document.getElementById("bg");
@@ -269,42 +197,6 @@ bg.appendChild(h);
 }
 
 function start(){
-
-document.getElementById("page").innerHTML=`
-
-<h1>🥰</h1>
-
-<p>
-
-Bana nasıl hitap etmemi istersin?
-
-</p>
-
-<input id="isim"
-
-placeholder="Örn: Yavrum">
-
-<br>
-
-<button onclick="saveName()">
-
-Devam Et ❤️
-
-</button>
-
-`;
-
-}
-
-function saveName(){
-
-let value=document.getElementById("isim").value;
-
-if(value.trim()!=""){
-
-isim=value;
-
-}
 
 loveQuestion();
 
@@ -347,13 +239,11 @@ Lütfen doğru cevabı seç. 😄
 `;
 
 const yes=document.getElementById("yes");
-
 const no=document.getElementById("no");
 
 no.addEventListener("mouseover",()=>{
 
 let x=Math.random()*500-250;
-
 let y=Math.random()*250-120;
 
 no.style.transform=`translate(${x}px,${y}px)`;
@@ -372,7 +262,7 @@ function question2(){
 
 document.getElementById("page").innerHTML=`
 
-<h1>🥰 ${isim}</h1>
+<h1>🥰 Yavrum</h1>
 
 <p>
 
@@ -465,13 +355,13 @@ document.getElementById("page").innerHTML=`
 
 <h1 style="font-size:45px;">
 
-❤️ Seni Çok Seviyorum ${isim} ❤️
+❤️ Seni Çok Seviyorum Yavrum ❤️
 
 </h1>
 
 <p style="font-size:22px;line-height:40px;">
 
-İyi ki varsın ${isim}. ❤️
+İyi ki varsın. ❤️
 
 Hayatıma kattığın her güzel an için teşekkür ederim.
 
@@ -533,9 +423,65 @@ c.remove();
 
 function loveRain(){
 
-setInterval(createHeart,180);
+    setInterval(createHeart,180);
 
-alert("❤️ Seni Çok Seviyorum " + isim + " ❤️");
+    document.body.innerHTML=`
+
+    <div id="bg"></div>
+
+    <div style="
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    background:linear-gradient(135deg,#ff5e9c,#ff8eb7,#ffd3df);
+    color:white;
+    font-size:60px;
+    font-weight:bold;
+    text-shadow:0 0 20px rgba(255,255,255,.6);
+    animation:show .8s;
+    ">
+
+    ❤️
+
+    <br>
+
+    Seni Çok Seviyorum Yavrum
+
+    <br>
+
+    ❤️
+
+    </div>
+
+    <div id="hearts"></div>
+
+    `;
+
+    const hearts=document.getElementById("hearts");
+
+    for(let i=0;i<60;i++){
+
+        let h=document.createElement("div");
+
+        h.className="heart";
+
+        h.innerHTML=["❤️","💕","💖","💗"][Math.floor(Math.random()*4)];
+
+        h.style.left=Math.random()*100+"%";
+
+        h.style.fontSize=(15+Math.random()*25)+"px";
+
+        h.style.animationDuration=(5+Math.random()*7)+"s";
+
+        h.style.animationDelay=Math.random()*8+"s";
+
+        hearts.appendChild(h);
+
+    }
 
 }
 
@@ -585,11 +531,6 @@ if(musicStarted) return;
 
 musicStarted=true;
 
-/*
-GitHub'a music.mp3 isimli bir dosya yüklersen
-arka planda otomatik çalmaya başlayacaktır.
-*/
-
 const music=new Audio("music.mp3");
 
 music.volume=0.35;
@@ -603,5 +544,4 @@ music.play().catch(()=>{});
 </script>
 
 </body>
-
 </html>
