@@ -393,6 +393,11 @@ c.remove();
 
 function loveRain(){
 
+const finalMusic = new Audio("music.mp3");
+finalMusic.volume = 0.5;
+finalMusic.loop = true;
+finalMusic.play().catch(() => {});
+
     setInterval(createHeart,180);
 
     document.body.innerHTML=`
@@ -492,24 +497,6 @@ heart.remove();
 },6000);
 
 }
-
-let musicStarted=false;
-
-document.addEventListener("click",()=>{
-
-if(musicStarted) return;
-
-musicStarted=true;
-
-const music=new Audio("music.mp3");
-
-music.volume=0.35;
-
-music.loop=true;
-
-music.play().catch(()=>{});
-
-},{once:true});
 
 </script>
 
