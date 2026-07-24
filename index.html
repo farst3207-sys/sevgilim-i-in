@@ -393,10 +393,10 @@ c.remove();
 
 function loveRain(){
 
-const finalMusic = new Audio("music.mp3");
-finalMusic.volume = 0.5;
-finalMusic.loop = true;
-finalMusic.play().catch(() => {});
+const music = new Audio("music.mp3");
+music.volume = 0.5;
+music.loop = true;
+music.play().catch(err => console.log(err));
 
     setInterval(createHeart,180);
 
