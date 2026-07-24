@@ -3,50 +3,605 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>❤️ Sürpriz ❤️</title>
+
+<title>❤️ Yavrum ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    font-family:Arial,sans-serif;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-.kutu{
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#ff5e9c,#ff8eb7,#ffd3df);
+
+}
+
+#bg{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+left:0;
+
+top:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
+
+.heart{
+
+position:absolute;
+
+bottom:-60px;
+
+color:white;
+
+opacity:.8;
+
+animation:heart linear infinite;
+
+}
+
+@keyframes heart{
+
+0%{
+
+transform:translateY(0) scale(.5);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) scale(1.5);
+
+opacity:0;
+
+}
+
+}
+
+.card{
+
+width:90%;
+
+max-width:560px;
+
+padding:40px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.20);
+
+backdrop-filter:blur(20px);
+
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+text-align:center;
+
+color:white;
+
+animation:show .7s;
+
+position:relative;
+
+z-index:10;
+
+}
+
+@keyframes show{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+h1{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:21px;
+
+line-height:35px;
+
+margin-bottom:30px;
+
 }
 
 button{
-    padding:15px 30px;
-    font-size:20px;
-    border:none;
-    border-radius:10px;
-    background:#ff4d6d;
-    color:white;
-    cursor:pointer;
+
+padding:16px 34px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff3d82;
+
+font-weight:bold;
+
+transition:.3s;
+
 }
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+input{
+
+width:90%;
+
+padding:15px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:15px;
+
+text-align:center;
+
+outline:none;
+
+margin-bottom:25px;
+
+}
+
+#no{
+
+position:absolute;
+
+}
+
 </style>
 
 </head>
+
 <body>
 
-<div class="kutu">
-<h1>❤️ Hoş Geldin Aşkım ❤️</h1>
-<p>Senin için küçük bir sürpriz hazırladım.</p>
+<div id="bg"></div>
 
-<button onclick="alert('Devamı geliyor ❤️')">
-Başla
+<div class="card" id="page">
+
+<h1>❤️ Hoş Geldin Yavrum ❤️</h1>
+
+<p>
+
+Senin için küçük ama çok özel
+bir sürpriz hazırladım...
+
+Hazırsan başlayalım. 🥰
+
+</p>
+
+<button onclick="start()">
+
+Başla 💖
+
 </button>
 
 </div>
 
+<script>
+
+let isim="Yavrum";
+
+let evetBoyut=1;
+
+const bg=document.getElementById("bg");
+
+for(let i=0;i<55;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=["❤️","💕","💖","💗"][Math.floor(Math.random()*4)];
+
+h.style.left=Math.random()*100+"%";
+
+h.style.fontSize=(15+Math.random()*25)+"px";
+
+h.style.animationDuration=(5+Math.random()*7)+"s";
+
+h.style.animationDelay=Math.random()*8+"s";
+
+bg.appendChild(h);
+
+}
+
+function start(){
+
+document.getElementById("page").innerHTML=`
+
+<h1>🥰</h1>
+
+<p>
+
+Bana nasıl hitap etmemi istersin?
+
+</p>
+
+<input id="isim"
+
+placeholder="Örn: Yavrum">
+
+<br>
+
+<button onclick="saveName()">
+
+Devam Et ❤️
+
+</button>
+
+`;
+
+}
+
+function saveName(){
+
+let value=document.getElementById("isim").value;
+
+if(value.trim()!=""){
+
+isim=value;
+
+}
+
+loveQuestion();
+
+}
+
+function loveQuestion(){
+
+document.getElementById("page").innerHTML=`
+
+<h1>
+
+Beni Seviyor Musun?
+
+🥹❤️
+
+</h1>
+
+<p>
+
+Lütfen doğru cevabı seç. 😄
+
+</p>
+
+<div style="position:relative;height:120px;">
+
+<button id="yes">
+
+❤️ Evet
+
+</button>
+
+<button id="no" style="left:220px;">
+
+💔 Hayır
+
+</button>
+
+</div>
+
+`;
+
+const yes=document.getElementById("yes");
+
+const no=document.getElementById("no");
+
+no.addEventListener("mouseover",()=>{
+
+let x=Math.random()*500-250;
+
+let y=Math.random()*250-120;
+
+no.style.transform=`translate(${x}px,${y}px)`;
+
+evetBoyut+=0.25;
+
+yes.style.transform=`scale(${evetBoyut})`;
+
+});
+
+yes.onclick=question2;
+
+}
+
+function question2(){
+
+document.getElementById("page").innerHTML=`
+
+<h1>🥰 ${isim}</h1>
+
+<p>
+
+Benimle sonsuza kadar
+birlikte olur musun? 💍❤️
+
+</p>
+
+<button onclick="question3()">
+
+💖 Evet
+
+</button>
+
+<br><br>
+
+<button onclick="question3()">
+
+💕 Tabii ki
+
+</button>
+
+`;
+
+}
+
+function question3(){
+
+document.getElementById("page").innerHTML=`
+
+<h1>💖</h1>
+
+<p>
+
+Beni ne kadar seviyorsun?
+
+</p>
+
+<button onclick="question4()">
+
+♾️ Sonsuza Kadar
+
+</button>
+
+<br><br>
+
+<button onclick="question4()">
+
+❤️ Dünyalar Kadar
+
+</button>
+
+`;
+
+}
+
+function question4(){
+
+document.getElementById("page").innerHTML=`
+
+<h1>😍 Son Bir Soru</h1>
+
+<p>
+
+Hayatındaki en güzel kişi kim?
+
+</p>
+
+<button onclick="finish()">
+
+🥰 Sensin
+
+</button>
+
+<br><br>
+
+<button onclick="finish()">
+
+❤️ Tabii ki Sen
+
+</button>
+
+`;
+
+}
+
+function finish(){
+
+document.getElementById("page").innerHTML=`
+
+<h1 style="font-size:45px;">
+
+❤️ Seni Çok Seviyorum ${isim} ❤️
+
+</h1>
+
+<p style="font-size:22px;line-height:40px;">
+
+İyi ki varsın ${isim}. ❤️
+
+Hayatıma kattığın her güzel an için teşekkür ederim.
+
+Seninle birlikte olduğum her an benim için çok değerli.
+
+💖 Seni Çok Seviyorum 💖
+
+</p>
+
+<button onclick="loveRain()">
+
+🎉 Son Sürpriz
+
+</button>
+
+`;
+
+confetti();
+
+}
+
+function confetti(){
+
+for(let i=0;i<180;i++){
+
+let c=document.createElement("div");
+
+c.innerHTML=["🎉","❤️","💕","💖","✨","🌸"][Math.floor(Math.random()*6)];
+
+c.style.position="fixed";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top="-40px";
+
+c.style.fontSize=(15+Math.random()*25)+"px";
+
+c.style.transition=(4+Math.random()*3)+"s linear";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.style.top="110vh";
+
+c.style.transform=`rotate(${720+Math.random()*720}deg)`;
+
+},30);
+
+setTimeout(()=>{
+
+c.remove();
+
+},7000);
+
+}
+
+}
+
+function loveRain(){
+
+setInterval(createHeart,180);
+
+alert("❤️ Seni Çok Seviyorum " + isim + " ❤️");
+
+}
+
+function createHeart(){
+
+let heart=document.createElement("div");
+
+heart.innerHTML=["❤️","💕","💖","💗"][Math.floor(Math.random()*4)];
+
+heart.style.position="fixed";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="100vh";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heart.style.transition="6s linear";
+
+heart.style.pointerEvents="none";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.top="-100px";
+
+heart.style.opacity="0";
+
+heart.style.transform="rotate(720deg) scale(1.5)";
+
+},30);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},6000);
+
+}
+
+let musicStarted=false;
+
+document.addEventListener("click",()=>{
+
+if(musicStarted) return;
+
+musicStarted=true;
+
+/*
+GitHub'a music.mp3 isimli bir dosya yüklersen
+arka planda otomatik çalmaya başlayacaktır.
+*/
+
+const music=new Audio("music.mp3");
+
+music.volume=0.35;
+
+music.loop=true;
+
+music.play().catch(()=>{});
+
+},{once:true});
+
+</script>
+
 </body>
+
 </html>
